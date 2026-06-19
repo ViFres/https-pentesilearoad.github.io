@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="The Nudge Unit — the side project of Vito F. Mainolfi (Pentesilea Road), featuring Mark Zonder and Hans Duynhoven." />
+  <title>Pentesilea Road — The Nudge Unit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inconsolata:wght@300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .tnu-hero {
+      min-height: 60vh; display: flex; align-items: flex-end;
+      padding: 8rem 2.5rem 4rem;
+      background: linear-gradient(to bottom, #080810 0%, var(--paper) 100%);
+      position: relative; overflow: hidden;
+    }
+    .tnu-hero-bg {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 70% at 30% 40%, rgba(30,20,70,.4) 0%, transparent 70%);
+    }
+    .tnu-hero-content { position: relative; max-width: 700px; }
+    .tnu-eyebrow { font-family: var(--mono); font-size: .65rem; letter-spacing: .3em; text-transform: uppercase; color: var(--gold-dim); margin-bottom: 1rem; }
+    .tnu-title { font-size: clamp(2.5rem, 6vw, 5.5rem); font-weight: 300; line-height: .95; color: var(--white); margin-bottom: 1rem; }
+    .tnu-title em { font-style: italic; color: var(--gold); }
+    .tnu-sub { font-family: var(--mono); font-size: .75rem; color: var(--silver); margin-bottom: 1.5rem; letter-spacing: .1em; }
+
+    /* tracklist reuse */
+    .tracklist { counter-reset: track; list-style: none; margin-top: 1.5rem; }
+    .tracklist li {
+      counter-increment: track;
+      display: flex; align-items: baseline; gap: 1rem;
+      padding: .7rem 0; border-bottom: 1px solid var(--ghost);
+      font-size: .95rem; color: var(--pale); transition: color .2s;
+    }
+    .tracklist li:hover { color: var(--white); }
+    .tracklist li::before {
+      content: counter(track, decimal-leading-zero);
+      font-family: var(--mono); font-size: .65rem;
+      color: var(--gold-dim); min-width: 2rem; flex-shrink: 0;
+    }
+
+    /* member bios */
+    .bio-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 3rem; }
+    .bio-card { border-top: 2px solid var(--ghost); padding-top: 1.5rem; }
+    .bio-name { font-size: 1.3rem; font-weight: 300; color: var(--white); margin-bottom: .2rem; }
+    .bio-role { font-family: var(--mono); font-size: .65rem; letter-spacing: .15em; text-transform: uppercase; color: var(--gold-dim); margin-bottom: 1rem; }
+    .bio-text { font-size: .95rem; color: var(--silver); }
+
+    @media (max-width: 768px) {
+      .bio-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-logo" href="index.html">Pentesilea Road</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="sonnets.html">Sonnets</a></li>
+      <li><a href="reviews.html">Reviews</a></li>
+      <li><a href="nudge.html" class="active">The Nudge Unit</a></li>
+      <li><a href="index.html#connect">Connect</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <div class="tnu-hero">
+    <div class="tnu-hero-bg"></div>
+    <div class="tnu-hero-content">
+      <p class="tnu-eyebrow">Side Project of Vito F. Mainolfi · Pentesilea Road</p>
+      <h1 class="tnu-title">The <em>Nudge</em><br />Unit</h1>
+      <p class="tnu-sub">Debut Album · August 8th, 2025</p>
+      <p style="color:var(--silver);max-width:520px;margin-bottom:2rem;">A visionary project embracing an alternative and boundary-free framework — progressive rock, ambient, and alternative elements. For the first time, Vito steps forward as a vocalist.</p>
+      <a href="https://pentesilearoad.bandcamp.com" class="btn btn-primary" target="_blank" rel="noopener">Listen on Bandcamp</a>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- VIDEOS -->
+  <section style="background: var(--mist);">
+    <div class="section-inner">
+      <p class="section-label">Visual</p>
+      <h2><em>Videos</em></h2>
+      <div class="videos-grid">
+        <div class="video-wrap">
+          <iframe src="https://www.youtube.com/embed/tVxrNDfHrLU" title="The Nudge Unit" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="video-wrap">
+          <iframe src="https://www.youtube.com/embed/j-wUkahgnoQ" title="The Nudge Unit video 2" allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- TRACKLIST + CREDITS -->
+  <section>
+    <div class="section-inner" style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;">
+      <div>
+        <p class="section-label">Tracklist</p>
+        <h2>The <em>Album</em></h2>
+        <ol class="tracklist">
+          <li>Unit One</li>
+          <li>Amber</li>
+          <li>Dorset Driving</li>
+          <li>The Nudge Unit</li>
+          <li>North-East, Dawn Line</li>
+          <li>Pleiades</li>
+          <li>American Wake</li>
+          <li>Feathers</li>
+        </ol>
+      </div>
+      <div>
+        <p class="section-label">Credits</p>
+        <h2><em>Who's</em> Involved</h2>
+        <div style="display:flex;flex-direction:column;gap:1.2rem;margin-top:.5rem;">
+          <div style="border-left:2px solid var(--ghost);padding-left:1rem;">
+            <p style="font-family:var(--mono);font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:.2rem;">Vocals · Guitar · Bass · Keys (track 5)</p>
+            <p style="color:var(--pale);">Vito F. Mainolfi</p>
+          </div>
+          <div style="border-left:2px solid var(--ghost);padding-left:1rem;">
+            <p style="font-family:var(--mono);font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:.2rem;">Keyboards · Sound Arrangements</p>
+            <p style="color:var(--pale);">Hans Duynhoven</p>
+          </div>
+          <div style="border-left:2px solid var(--ghost);padding-left:1rem;">
+            <p style="font-family:var(--mono);font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:.2rem;">Drums (5 tracks)</p>
+            <p style="color:var(--pale);">Mark Zonder</p>
+            <p style="font-size:.85rem;color:var(--silver);margin-top:.2rem;">Fates Warning · Warlord</p>
+          </div>
+          <div style="border-left:2px solid var(--ghost);padding-left:1rem;">
+            <p style="font-family:var(--mono);font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:.2rem;">Guest Keyboard Solos (American Wake · Feathers)</p>
+            <p style="color:var(--pale);">Jason Dykes</p>
+          </div>
+          <div style="border-left:2px solid var(--ghost);padding-left:1rem;">
+            <p style="font-family:var(--mono);font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:.2rem;">Mixed & Mastered</p>
+            <p style="color:var(--pale);">Rocco Minichiello @ Blackness Sound Studio</p>
+          </div>
+        </div>
+        <p style="margin-top:1.5rem;font-size:.85rem;">All Music and Lyrics by Vito F. Mainolfi</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- BIOS -->
+  <section style="background: var(--mist);">
+    <div class="section-inner">
+      <p class="section-label">The People</p>
+      <h2><em>Bios</em></h2>
+      <div class="bio-grid">
+
+        <div class="bio-card">
+          <p class="bio-name">Vito F. Mainolfi</p>
+          <p class="bio-role">Founder · Musician · Composer</p>
+          <p class="bio-text">A visionary musician and multi-instrumentalist best known as the founder of Pentesilea Road. With a passion for progressive rock, alternative soundscapes, and experimental music, Vito has crafted a distinct artistic identity blending technical mastery with raw emotion. Originally launching The Nudge Unit as a solo, boundary-pushing project, he expanded the sound alongside talented collaborators — and for the first time steps into vocals, adding a new expressive dimension to his artistry.</p>
+        </div>
+
+        <div class="bio-card">
+          <p class="bio-name">Hans Duynhoven</p>
+          <p class="bio-role">Keyboards · Sound Arrangements</p>
+          <p class="bio-text">Dutch keyboardist who began his career at 17 in pop groups before becoming a professional musician and educator. After studying Hammond Organ, Jazz Piano, and Keyboards at the Leeuwarden Conservatory, he taught at multiple music schools and conservatories. For the last twenty years of his career he was affiliated with the Academy of Pop Culture in Leeuwarden, supervising projects and teaching Keys and Music Theory. He currently works as a freelancer contributing to studio projects.</p>
+        </div>
+
+        <div class="bio-card">
+          <p class="bio-name">Mark Zonder</p>
+          <p class="bio-role">Drums</p>
+          <p class="bio-text">Legendary drummer known for his work with Fates Warning and Warlord. A guest on the debut Pentesilea Road album, Mark returns here to play drums on five of the eight tracks, bringing his signature precision and power to The Nudge Unit's sound.</p>
+        </div>
+
+        <div class="bio-card">
+          <p class="bio-name">Jason Dykes</p>
+          <p class="bio-role">Guest Keyboard Solos</p>
+          <p class="bio-text">Featured on <em>American Wake</em> and <em>Feathers</em>, Jason contributes expressive keyboard solos that add a distinctive colour to the album's most atmospheric moments.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- CONTACT -->
+  <section>
+    <div class="section-inner">
+      <p class="section-label">Contact</p>
+      <h2>Press &amp; <em>Booking</em></h2>
+      <p style="max-width:500px;">For press enquiries, booking, or collaborations, reach out directly:</p>
+      <br />
+      <a href="mailto:vito.f.mainolfi@gmail.com" class="btn btn-primary">vito.f.mainolfi@gmail.com</a>
+    </div>
+  </section>
+
+  <footer>
+    <a class="nav-logo footer-logo" href="index.html">Pentesilea Road</a>
+    <nav class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="sonnets.html">Sonnets</a>
+      <a href="reviews.html">Reviews</a>
+      <a href="nudge.html">The Nudge Unit</a>
+    </nav>
+    <span class="footer-note">© Pentesilea Road · All Rights Reserved</span>
+  </footer>
+
+</body>
+</html>

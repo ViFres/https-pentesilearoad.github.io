@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Sonnets from the Drowsiness — the second album by Pentesilea Road. 18 tracks, double CD, out May 23rd 2025 on Dutch Music Works." />
+  <meta property="og:title" content="Pentesilea Road — Sonnets from the Drowsiness" />
+  <title>Pentesilea Road — Sonnets from the Drowsiness</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inconsolata:wght@300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .album-hero {
+      min-height: 70vh; display: flex; align-items: flex-end;
+      padding: 8rem 2.5rem 4rem;
+      background: linear-gradient(to bottom, var(--ink) 0%, var(--paper) 100%);
+      position: relative; overflow: hidden;
+    }
+    .album-hero-bg {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 80% at 80% 30%, rgba(74,63,107,.25) 0%, transparent 70%);
+    }
+    .album-hero-grid {
+      position: relative; max-width: 1100px; margin: 0 auto; width: 100%;
+      display: grid; grid-template-columns: 400px 1fr; gap: 4rem; align-items: end;
+    }
+    .album-cover-large { aspect-ratio: 1; background: var(--ghost); overflow: hidden; box-shadow: 0 40px 80px rgba(0,0,0,.6); }
+    .album-cover-large img { width: 100%; height: 100%; object-fit: cover; }
+    .album-hero-info { padding-bottom: 1rem; }
+    .album-tag { font-family: var(--mono); font-size: .65rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold-dim); margin-bottom: .8rem; }
+    .album-title-large { font-size: clamp(2rem, 4.5vw, 4rem); font-weight: 300; line-height: 1; color: var(--white); margin-bottom: .5rem; }
+    .album-title-large em { font-style: italic; color: var(--gold); }
+    .album-subtitle { font-family: var(--mono); font-size: .8rem; color: var(--silver); margin-bottom: 1.5rem; }
+    .album-desc { font-size: 1.05rem; color: var(--silver); margin-bottom: 2rem; max-width: 500px; }
+    .cta-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    /* tracklist */
+    .tracklist { counter-reset: track; list-style: none; margin-top: 2rem; }
+    .tracklist li {
+      counter-increment: track;
+      display: flex; align-items: baseline; gap: 1rem;
+      padding: .8rem 0; border-bottom: 1px solid var(--ghost);
+      font-size: 1rem; color: var(--pale);
+      transition: color .2s;
+    }
+    .tracklist li:hover { color: var(--white); }
+    .tracklist li::before {
+      content: counter(track, decimal-leading-zero);
+      font-family: var(--mono); font-size: .65rem;
+      color: var(--gold-dim); min-width: 2rem; flex-shrink: 0;
+    }
+    .track-tag {
+      font-family: var(--mono); font-size: .6rem; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--accent);
+      border: 1px solid var(--accent); padding: .1rem .4rem; margin-left: auto; flex-shrink: 0;
+    }
+    .bonus-row {
+      padding: .8rem 0;
+      font-family: var(--mono); font-size: .7rem;
+      color: var(--gold); letter-spacing: .1em; text-transform: uppercase;
+      border-top: 1px solid var(--ghost);
+    }
+
+    /* credits */
+    .credits-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+    .credit-item { border-left: 2px solid var(--ghost); padding-left: 1rem; }
+    .credit-role { font-family: var(--mono); font-size: .65rem; letter-spacing: .15em; text-transform: uppercase; color: var(--gold-dim); margin-bottom: .3rem; }
+    .credit-name { color: var(--pale); font-size: 1rem; }
+
+    @media (max-width: 768px) {
+      .album-hero-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .album-cover-large { max-width: 280px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-logo" href="index.html">Pentesilea Road</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="sonnets.html" class="active">Sonnets</a></li>
+      <li><a href="reviews.html">Reviews</a></li>
+      <li><a href="nudge.html">The Nudge Unit</a></li>
+      <li><a href="index.html#connect">Connect</a></li>
+    </ul>
+  </nav>
+
+  <!-- ALBUM HERO -->
+  <div class="album-hero">
+    <div class="album-hero-bg"></div>
+    <div class="album-hero-grid">
+      <div class="album-cover-large">
+        <img src="images/cover-sonnets.jpg" alt="Sonnets from the Drowsiness album cover" />
+      </div>
+      <div class="album-hero-info">
+        <p class="album-tag">Second Album · Dutch Music Works · May 23rd, 2025</p>
+        <h1 class="album-title-large">Sonnets from<br />the <em>Drowsiness</em></h1>
+        <p class="album-subtitle">Double Album · 18 Tracks · ~1h 43min</p>
+        <p class="album-desc">An exploration of lucid dreams, the dreamtime, and the relationship between the future and the past. Featuring Michele Guaitoli (Visions of Atlantis, Temperance) on vocals. The double Digipak edition includes an exclusive bonus track featuring Zak Stevens (Savatage, TSO).</p>
+        <div class="cta-row">
+          <a href="https://tinyurl.com/23d5h2vu" class="btn btn-primary" target="_blank" rel="noopener">Buy the CD</a>
+          <a href="https://pentesilearoad.bandcamp.com" class="btn btn-ghost" target="_blank" rel="noopener">Stream on Bandcamp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- TRACKLIST -->
+  <section style="background: var(--mist);">
+    <div class="section-inner">
+      <p class="section-label">Song List</p>
+      <h2>The <em>Tracks</em></h2>
+
+      <!-- Bandcamp embed -->
+      <iframe style="border:0;width:100%;height:120px;margin-bottom:2.5rem;"
+        src="https://bandcamp.com/EmbeddedPlayer/album=3432744197/size=large/bgcol=1a1820/linkcol=b89a5a/tracklist=false/artwork=none/transparent=true/"
+        seamless><a href="https://pentesilearoad.bandcamp.com/album/sonnets-from-the-drowsiness">Sonnets from the Drowsiness by Pentesilea Road</a>
+      </iframe>
+
+      <ol class="tracklist">
+        <li>Ode to the Reflective Mind <span class="track-tag">Instr.</span></li>
+        <li>Inside Out</li>
+        <li>Pulse</li>
+        <li>Solitary Walk</li>
+        <li>Aria</li>
+        <li>Underground</li>
+        <li>The Geometry of Nothing</li>
+        <li>Mare Nostrum <span class="track-tag">Instr.</span></li>
+        <li>Worlds Apart</li>
+        <li>The Other Corner <span class="track-tag">Instr.</span></li>
+        <li>Shrine</li>
+        <li>Grave New World</li>
+        <li>September's Ghosts</li>
+        <li>Echo of Silence</li>
+        <li>Remember Now</li>
+        <li>A Relentless Elegy of Laziness <span class="track-tag">Instr.</span></li>
+        <li>The River Bend</li>
+        <li>The Physiopathology of Every Day Dream <span class="track-tag">Instr.</span></li>
+      </ol>
+      <div class="bonus-row">Bonus (CD Digipak only): The Geometry of Nothing — feat. Zak Stevens (Savatage / TSO)</div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- CREDITS -->
+  <section>
+    <div class="section-inner">
+      <p class="section-label">Credits</p>
+      <h2><em>Who's</em> on the Album</h2>
+      <div class="credits-grid">
+        <div class="credit-item">
+          <p class="credit-role">Vocals</p>
+          <p class="credit-name">Michele Guaitoli</p>
+          <p style="font-size:.85rem;margin-top:.2rem;">Visions of Atlantis · Temperance</p>
+        </div>
+        <div class="credit-item">
+          <p class="credit-role">Guitars</p>
+          <p class="credit-name">Vito F. Mainolfi</p>
+        </div>
+        <div class="credit-item">
+          <p class="credit-role">Bass</p>
+          <p class="credit-name">Giovanni Montesano</p>
+          <p style="font-size:.85rem;margin-top:.2rem;">Cirque du Soleil</p>
+        </div>
+        <div class="credit-item">
+          <p class="credit-role">Keys</p>
+          <p class="credit-name">Ezio Di Ieso</p>
+        </div>
+        <div class="credit-item">
+          <p class="credit-role">Drums</p>
+          <p class="credit-name">Alfonso Mocerino</p>
+        </div>
+        <div class="credit-item">
+          <p class="credit-role">Bonus Track Guest</p>
+          <p class="credit-name">Zak Stevens</p>
+          <p style="font-size:.85rem;margin-top:.2rem;">Savatage · Trans-Siberian Orchestra</p>
+        </div>
+      </div>
+      <p style="margin-top:2rem;font-size:.85rem;">Cover Art: Tracy Lundgren (Twisted Gipsy Design) · Artwork: Rafael Araujo · Prog Photo Agency</p>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- VIDEOS -->
+  <section style="background: var(--mist);">
+    <div class="section-inner">
+      <p class="section-label">Singles</p>
+      <h2>Music <em>Videos</em></h2>
+      <div class="videos-grid">
+        <div class="video-wrap">
+          <iframe src="https://www.youtube.com/embed/WJPYVXyst-4" title="Echo of Silence" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="video-wrap">
+          <iframe src="https://www.youtube.com/embed/Q58lrtntFLg" title="The Geometry of Nothing" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="video-wrap">
+          <iframe src="https://www.youtube.com/embed/pPWHBMdlcDg" title="Worlds Apart" allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a class="nav-logo footer-logo" href="index.html">Pentesilea Road</a>
+    <nav class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="sonnets.html">Sonnets</a>
+      <a href="reviews.html">Reviews</a>
+      <a href="nudge.html">The Nudge Unit</a>
+    </nav>
+    <span class="footer-note">© Pentesilea Road · All Rights Reserved</span>
+  </footer>
+
+</body>
+</html>

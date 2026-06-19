@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Reviews and interviews for Pentesilea Road — DPRP, Progarchives, Rock Report, Sea of Tranquility and more." />
+  <title>Pentesilea Road — Reviews &amp; Interviews</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inconsolata:wght@300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .album-filter {
+      display: flex; gap: .75rem; flex-wrap: wrap; margin-bottom: 2.5rem;
+    }
+    .filter-btn {
+      font-family: var(--mono); font-size: .65rem; letter-spacing: .15em;
+      text-transform: uppercase; padding: .45rem 1.1rem;
+      border: 1px solid var(--ghost); color: var(--silver);
+      background: transparent; cursor: pointer; transition: all .2s;
+    }
+    .filter-btn.active, .filter-btn:hover {
+      border-color: var(--gold-dim); color: var(--gold);
+      background: rgba(184,154,90,.05);
+    }
+    .album-badge {
+      font-family: var(--mono); font-size: .58rem; letter-spacing: .1em;
+      text-transform: uppercase; padding: .1rem .5rem;
+      border: 1px solid; display: inline-block; margin-bottom: .5rem;
+    }
+    .badge-sftd { border-color: var(--gold-dim); color: var(--gold-dim); }
+    .badge-debut { border-color: var(--accent); color: var(--silver); }
+
+    .interviews-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem; margin-top: 3rem;
+    }
+    .interview-card {
+      border: 1px solid var(--ghost); padding: 2rem;
+      display: flex; flex-direction: column; gap: .8rem;
+      transition: border-color .2s;
+    }
+    .interview-card:hover { border-color: var(--gold-dim); }
+    .interview-title { font-size: 1.05rem; color: var(--pale); font-style: italic; }
+    .interview-source { font-family: var(--mono); font-size: .65rem; letter-spacing: .15em; text-transform: uppercase; color: var(--gold-dim); }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-logo" href="index.html">Pentesilea Road</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="sonnets.html">Sonnets</a></li>
+      <li><a href="reviews.html" class="active">Reviews</a></li>
+      <li><a href="nudge.html">The Nudge Unit</a></li>
+      <li><a href="index.html#connect">Connect</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-header">
+    <div class="section-inner">
+      <p class="section-label">Press</p>
+      <h1>Reviews &amp; <em>Interviews</em></h1>
+    </div>
+  </div>
+
+  <!-- SONNETS REVIEWS -->
+  <section style="background: var(--mist);">
+    <div class="section-inner">
+      <p class="section-label">2025</p>
+      <h2><em>Sonnets from the Drowsiness</em> — Reviews</h2>
+
+      <div class="reviews-grid">
+
+        <div class="review-card">
+          <span class="album-badge badge-sftd">Sonnets</span>
+          <p class="review-quote">"An ABSOLUTE masterpiece, just like the first one! Over 100 minutes of awesome prog rock/metal. References: Vanden Plas, Everon, Subsignal, Fates Warning. This will end up high in my year list for sure."</p>
+          <a class="review-source" href="https://www.rockreport.be/albums/pentesilea-road-sonnets-from-the-drowsiness" target="_blank" rel="noopener">Rock Report</a>
+        </div>
+
+        <div class="review-card">
+          <span class="album-badge badge-sftd">Sonnets</span>
+          <p class="review-quote">"Topklasse, pure topklasse."</p>
+          <a class="review-source" href="https://www.musika.be/2025/12/08/pentesilea-road-sonnets-from-the-drowsiness/" target="_blank" rel="noopener">Musika</a>
+        </div>
+
+        <div class="review-card">
+          <span class="album-badge badge-sftd">Sonnets</span>
+          <p class="review-quote">"Say no more and push the play button! 10/10"</p>
+          <a class="review-source" href="https://petesrocknewsandviews.com/pentesilea-road-sonnets-from-the-drowsiness/" target="_blank" rel="noopener">Pete's Rock News and Views</a>
+        </div>
+
+        <div class="review-card">
+          <span class="album-badge badge-sftd">Sonnets</span>
+          <p class="review-quote">"The band's second album is the kind of record that spares no ambition."</p>
+          <a class="review-source" href="https://www.progarchives.com/Review.asp?id=3221754" target="_blank" rel="noopener">Progarchives</a>
+        </div>
+
+        <div class="review-card">
+          <span class="album-badge badge-sftd">Sonnets</span>
+          <p class="review-quote">"A prog feast — ambitious, melodic, and crafted with care. The diversity and wideness are tremendous and executed with grace. Pentesilea Road have carved out their own niche, and it's well worth the ride."</p>
+          <a class="review-source" href="https://www.headbangerslifestyle.com/music/reviews/review-pentesilea-road-sonnets-from-the-drowsiness/" target="_blank" rel="noopener">Headbangers Lifestyle</a>
+        </div>
+
+        <div class="review-card">
+          <span class="album-badge badge-sftd">Sonnets</span>
+          <p class="review-quote">"A mature and well-crafted work that confirms Pentesilea Road's place in contemporary progressive rock. Compositions that challenge the listener to discover new aspects with each listen."</p>
+          <a class="review-source" href="https://rockoverdose.gr/portfolio-view/pentesilea-road-sonnets-from-the-drowsiness/" target="_blank" rel="noopener">Rock Overdose</a>
+        </div>
+
+        <div class="review-card">
+          <span class="album-badge badge-sftd">Sonnets</span>
+          <p class="review-quote">"An overall very good release — 8/10. I never found any songs that can be labelled as fillers. This album found its way to my ears many times and I enjoyed every spin."</p>
+          <a class="review-source" href="https://www.dprp.net/reviews/2025/029#pentesilea-road" target="_blank" rel="noopener">DPRP (8/10)</a>
+        </div>
+
+        <div class="review-card">
+          <span class="album-badge badge-sftd">Sonnets</span>
+          <p class="review-quote">"A descent, almost medical, into the lyricism of drowsiness and clouded consciousness. Pentesilea Road deliver their most mature and cerebrally hard work to date."</p>
+          <a class="review-source" href="https://rockandroll.gr" target="_blank" rel="noopener">Rock and Roll GR</a>
+        </div>
+
+        <div class="review-card">
+          <span class="album-badge badge-sftd">Sonnets</span>
+          <p class="review-quote">"En un género obsesionado con la complejidad, Sonnets from the Drowsiness nos recuerda que las progresiones más profundas suelen estar en el interior."</p>
+          <a class="review-source" href="http://www.eltemplariodelmetal.com/2025/07/critica-pentesilea-road-sonnets-from.html" target="_blank" rel="noopener">El Templario del Metal</a>
+        </div>
+
+        <div class="review-card">
+          <span class="album-badge badge-sftd">Sonnets</span>
+          <p class="review-quote">"Full of extremely intelligent observations about human affairs. Power, rhythm and expression define this release and make you want to listen — and at the same time, take a break to process the cycle of emotions."</p>
+          <a class="review-source" href="https://mlwz.pl/recenzje/plyty/27908-pentesilea-road-sonnets-from-the-drowsiness" target="_blank" rel="noopener">MLWZ Poland</a>
+        </div>
+
+        <div class="review-card">
+          <span class="album-badge badge-sftd">Sonnets</span>
+          <p class="review-quote">"Com 'Sonnets from the Drowsiness', a Pentesilea Road alcança um ótimo equilíbrio entre estrutura complexa, melodia envolvente e peso emocional."</p>
+          <a class="review-source" href="https://tinyurl.com/3b2fv23e" target="_blank" rel="noopener">Progland</a>
+        </div>
+
+        <div class="review-card">
+          <span class="album-badge badge-sftd">Sonnets</span>
+          <p class="review-quote">"De band laat horen dat ze weten hoe een progressief meesterwerk gemaakt kan worden. Absoluut één van de beste albums van dit jaar."</p>
+          <p class="review-source">Rock Portaal</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- DEBUT REVIEWS -->
+  <section>
+    <div class="section-inner">
+      <p class="section-label">2021</p>
+      <h2><em>Pentesilea Road</em> — Debut Reviews</h2>
+
+      <div class="reviews-grid">
+
+        <div class="review-card">
+          <span class="album-badge badge-debut">Debut</span>
+          <p class="review-quote">"Walking on the hard-rocking edge of the progressive world, a wandering traveller may stumble upon a rare gem. And he'd be lucky!"</p>
+          <a class="review-source" href="https://www.musicarockprogresivo.wordpress.com/2021/11/30/pentesilea-road-pentesilea-road-album-review/" target="_blank" rel="noopener">Rock Progresivo</a>
+        </div>
+
+        <div class="review-card">
+          <span class="album-badge badge-debut">Debut</span>
+          <p class="review-quote">"When Post-Progressive Rock meets the finer elements of Progressive Metal — polished with a seasoning of Rush's Geddy Lee and influences reminiscent of Queensrÿche's Geoff Tate — then you have a product of musical mastery."</p>
+          <a class="review-source" href="https://www.seaoftranquility.org/reviews.php?op=showcontent&id=22905" target="_blank" rel="noopener">Sea of Tranquility</a>
+        </div>
+
+        <div class="review-card">
+          <span class="album-badge badge-debut">Debut</span>
+          <p class="review-quote">"This record may be the closest thing to a new Fates Warning album in its own unique way. A crossroad of inspirations: jazz, blues, progressive metal, post-rock soundscapes. A must-listen."</p>
+          <a class="review-source" href="https://kickassforever.com/pentesilea-road-progressive-metal-italy-album-review-of-pentesilea-road-self-released-on-february-26-2021/" target="_blank" rel="noopener">Kick Ass Forever</a>
+        </div>
+
+        <div class="review-card">
+          <span class="album-badge badge-debut">Debut</span>
+          <p class="review-quote">"Layered with melody and catchy from the first tantalising synth. Superb interplay and a great variety of atmospheres."</p>
+          <a class="review-source" href="https://www.dprp.net/reviews/2021/117#pentesilea-road" target="_blank" rel="noopener">DPRP</a>
+        </div>
+
+        <div class="review-card">
+          <span class="album-badge badge-debut">Debut</span>
+          <p class="review-quote">"A marvellous debut album — stunning guitar work, excellent songwriting, and of course mister Alder does the rest. Another prog rock/metal gem from Italy: buy or die!!"</p>
+          <a class="review-source" href="https://www.backgroundmagazine.nl/CDreviews/PentesileaRoadPentesileaRoad.html" target="_blank" rel="noopener">Background Magazine</a>
+        </div>
+
+        <div class="review-card">
+          <span class="album-badge badge-debut">Debut</span>
+          <p class="review-quote">"A debut album that makes you sit up and take notice. All that's missing now is a tour with Fates Warning."</p>
+          <a class="review-source" href="http://www.adnoctum.de/reviews/tontr%C3%A4ger/o-z/" target="_blank" rel="noopener">Ad Noctum</a>
+        </div>
+
+        <div class="review-card">
+          <span class="album-badge badge-debut">Debut</span>
+          <p class="review-quote">"Un debutto indubbiamente convincente — veramente bello e sorprendente per passione, vivacità, ispirazione e soprattutto molto elegante."</p>
+          <a class="review-source" href="https://www.metal.it/album.aspx/43328/pentesilea-road-pentesilea-road/" target="_blank" rel="noopener">Metal.it</a>
+        </div>
+
+        <div class="review-card">
+          <span class="album-badge badge-debut">Debut</span>
+          <p class="review-quote">"To all proggers — check this out, it is one of the prog records of the year!"</p>
+          <a class="review-source" href="https://www.reflectionsofdarkness.com/review-flash/21000-cd-review-pentesilea-road-pentesilea-road" target="_blank" rel="noopener">Reflection of Darkness</a>
+        </div>
+
+        <div class="review-card">
+          <span class="album-badge badge-debut">Debut</span>
+          <p class="review-quote">"Highly recommend it — one listen and you will be definitely rewarded."</p>
+          <a class="review-source" href="https://metaladdicts.com/pentesilea-road-pentesilea-road-review/" target="_blank" rel="noopener">Metal Addicts</a>
+        </div>
+
+        <div class="review-card">
+          <span class="album-badge badge-debut">Debut</span>
+          <p class="review-quote">"#30 — 2021 Top 50 Prog Albums"</p>
+          <a class="review-source" href="https://uniquehighfidelity.wixsite.com/denimandleather/post/2021-top-50-prog-albums" target="_blank" rel="noopener">Unique High Fidelity</a>
+        </div>
+
+        <div class="review-card">
+          <span class="album-badge badge-debut">Debut</span>
+          <p class="review-quote">"Just let your heart tell a story. Without compromising in the name of sales and marketing. Even if you're not into the progressive genre, check this one out."</p>
+          <a class="review-source" href="https://www.zombiesound.com/blog/pentesilea-road-shades-of-the-night" target="_blank" rel="noopener">Zombie Sound</a>
+        </div>
+
+        <div class="review-card">
+          <span class="album-badge badge-debut">Debut</span>
+          <p class="review-quote">"Vito é un talentoso multi-instrumentista — não há exageros nem se sente a necessidade de exibir qualidades técnicas. 8.5/10"</p>
+          <a class="review-source" href="https://worldofmetalmag.com/wom-reviews-zayn-eastern-high-messier-16-airbag-pentesilea-road-threads-wine-guardian/" target="_blank" rel="noopener">WOM</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- INTERVIEWS -->
+  <section style="background: var(--mist);">
+    <div class="section-inner">
+      <p class="section-label">Conversations</p>
+      <h2><em>Interviews</em></h2>
+      <div class="interviews-grid">
+
+        <div class="interview-card">
+          <p class="interview-title">"Pentesilea Road – La città invisibile"</p>
+          <a class="review-source" href="https://ilragliodelmulo.com/2021/02/23/pentesilea-road-la-citta-invisibile/" target="_blank" rel="noopener">Il Raglio del Mulo</a>
+        </div>
+
+        <div class="interview-card">
+          <p class="interview-title">"Interview With Vito F. Mainolfi — about their debut album, their vision and future plans."</p>
+          <a class="review-source" href="https://www.zombiesound.com/blog/interview-with-vito-f-mainolfi-pentesilea-road" target="_blank" rel="noopener">Zombie Sound</a>
+        </div>
+
+        <div class="interview-card">
+          <p class="interview-title">"EMQs with Pentesilea Road — Netherlands-based, Italian Post-Progressive Rock project."</p>
+          <a class="review-source" href="https://www.ever-metal.com/2021/07/20/emqs-with-pentesilea-road/" target="_blank" rel="noopener">Ever Metal</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a class="nav-logo footer-logo" href="index.html">Pentesilea Road</a>
+    <nav class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="sonnets.html">Sonnets</a>
+      <a href="reviews.html">Reviews</a>
+      <a href="nudge.html">The Nudge Unit</a>
+    </nav>
+    <span class="footer-note">© Pentesilea Road · All Rights Reserved</span>
+  </footer>
+
+</body>
+</html>

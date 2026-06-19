@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Pentesilea Road — Post-progressive metal from Rome, Italy. A journey along the roads of the Invisible Cities." />
+  <meta property="og:title" content="Pentesilea Road" />
+  <meta property="og:description" content="A post-progressive journey along the roads of the Invisible Cities." />
+  <title>Pentesilea Road</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inconsolata:wght@300;400&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── TOKENS ── */
+    :root {
+      --ink:      #0a0a0c;
+      --paper:    #0f0e13;
+      --mist:     #1a1820;
+      --ghost:    #2a2735;
+      --silver:   #8c8aa0;
+      --pale:     #c8c5d8;
+      --white:    #edeaf5;
+      --gold:     #b89a5a;
+      --gold-dim: #7a6438;
+      --accent:   #4a3f6b;
+
+      --serif:  'Cormorant Garamond', Georgia, serif;
+      --mono:   'Inconsolata', monospace;
+
+      --gap: clamp(3rem, 8vw, 7rem);
+    }
+
+    /* ── RESET ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--paper);
+      color: var(--pale);
+      font-family: var(--serif);
+      font-size: clamp(1rem, 1.1vw, 1.15rem);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: var(--gold); text-decoration: none; transition: color .2s; }
+    a:hover { color: var(--white); }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 2.5rem;
+      background: linear-gradient(to bottom, rgba(10,10,12,.95) 0%, transparent 100%);
+      backdrop-filter: blur(4px);
+    }
+    .nav-logo {
+      font-family: var(--mono);
+      font-size: .75rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .nav-links {
+      display: flex; gap: 2rem; list-style: none;
+    }
+    .nav-links a {
+      font-family: var(--mono);
+      font-size: .7rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--silver);
+    }
+    .nav-links a:hover { color: var(--white); }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100svh;
+      display: flex; flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 2.5rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 60% 40%, rgba(74,63,107,.18) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 50% at 20% 70%, rgba(184,154,90,.06) 0%, transparent 60%),
+        var(--ink);
+    }
+    /* Subtle animated shimmer */
+    .hero-bg::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(255,255,255,.012) 2px,
+        rgba(255,255,255,.012) 4px
+      );
+      pointer-events: none;
+    }
+    .hero-content { position: relative; max-width: 900px; }
+    .hero-eyebrow {
+      font-family: var(--mono);
+      font-size: .7rem;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      margin-bottom: 1.2rem;
+    }
+    h1 {
+      font-size: clamp(3.5rem, 9vw, 8rem);
+      font-weight: 300;
+      line-height: .95;
+      letter-spacing: -.02em;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+    h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+    .hero-tagline {
+      font-size: clamp(1rem, 1.4vw, 1.25rem);
+      font-style: italic;
+      color: var(--silver);
+      max-width: 520px;
+      margin-bottom: 2.5rem;
+    }
+    .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn {
+      display: inline-block;
+      padding: .7rem 1.8rem;
+      font-family: var(--mono);
+      font-size: .7rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      border: 1px solid;
+      transition: background .2s, color .2s, border-color .2s;
+    }
+    .btn-primary {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--ink);
+    }
+    .btn-primary:hover {
+      background: var(--white);
+      border-color: var(--white);
+      color: var(--ink);
+    }
+    .btn-ghost {
+      background: transparent;
+      border-color: var(--ghost);
+      color: var(--silver);
+    }
+    .btn-ghost:hover {
+      border-color: var(--pale);
+      color: var(--white);
+    }
+    .hero-scroll {
+      position: absolute; bottom: 2rem; right: 2.5rem;
+      font-family: var(--mono); font-size: .65rem;
+      letter-spacing: .2em; text-transform: uppercase;
+      color: var(--ghost);
+      writing-mode: vertical-rl;
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: var(--gap) 2.5rem; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-family: var(--mono);
+      font-size: .65rem;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      margin-bottom: 2.5rem;
+      display: flex; align-items: center; gap: 1rem;
+    }
+    .section-label::after {
+      content: '';
+      flex: 1; max-width: 80px;
+      height: 1px;
+      background: var(--ghost);
+    }
+    h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+    h2 em { font-style: italic; color: var(--gold); }
+    h3 {
+      font-size: clamp(1.1rem, 1.6vw, 1.4rem);
+      font-weight: 400;
+      color: var(--pale);
+      margin-bottom: .5rem;
+    }
+    p { color: var(--silver); margin-bottom: 1rem; }
+    p:last-child { margin-bottom: 0; }
+
+    /* divider */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--ghost);
+      margin: 0;
+    }
+
+    /* ── ALBUMS ── */
+    #music { background: var(--mist); }
+    .albums-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-top: 3rem;
+    }
+    .album-card { display: flex; flex-direction: column; gap: 1.5rem; }
+    .album-cover {
+      aspect-ratio: 1;
+      background: var(--ghost);
+      overflow: hidden;
+      position: relative;
+    }
+    .album-cover img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
+    .album-card:hover .album-cover img { transform: scale(1.03); }
+    .album-tag {
+      font-family: var(--mono);
+      font-size: .65rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      margin-bottom: .4rem;
+    }
+    .album-title {
+      font-size: clamp(1.3rem, 2vw, 1.9rem);
+      font-weight: 300;
+      color: var(--white);
+      margin-bottom: .4rem;
+    }
+    .album-meta { font-family: var(--mono); font-size: .7rem; color: var(--silver); margin-bottom: 1rem; }
+
+    /* Bandcamp embeds */
+    .bc-embed { width: 100%; border: 0; background: transparent; }
+
+    /* ── VIDEOS ── */
+    #videos { background: var(--paper); }
+    .videos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .video-wrap {
+      position: relative;
+      padding-bottom: 56.25%;
+      background: var(--ink);
+    }
+    .video-wrap iframe {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      border: 0;
+    }
+
+    /* ── ABOUT ── */
+    #about { background: var(--mist); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+      margin-top: 3rem;
+    }
+    .about-text p { font-size: 1.05rem; }
+    .members-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    .member { display: flex; flex-direction: column; gap: .5rem; }
+    .member-photo {
+      aspect-ratio: 1;
+      background: var(--ghost);
+      overflow: hidden;
+    }
+    .member-photo img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(30%); transition: filter .3s; }
+    .member:hover .member-photo img { filter: grayscale(0%); }
+    .member-name {
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--pale);
+    }
+    .member-role {
+      font-family: var(--mono);
+      font-size: .65rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+    }
+
+    /* ── PRESS ── */
+    #press { background: var(--paper); }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .review-card {
+      border: 1px solid var(--ghost);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      transition: border-color .2s;
+    }
+    .review-card:hover { border-color: var(--accent); }
+    .review-quote {
+      font-style: italic;
+      color: var(--pale);
+      font-size: 1rem;
+      line-height: 1.6;
+      flex: 1;
+    }
+    .review-source {
+      font-family: var(--mono);
+      font-size: .65rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+    }
+
+    /* ── LINKS / CONNECT ── */
+    #connect { background: var(--mist); }
+    .connect-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-top: 3rem;
+    }
+    .connect-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.2rem;
+      border: 1px solid var(--ghost);
+      font-family: var(--mono);
+      font-size: .7rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--silver);
+      transition: border-color .2s, color .2s, background .2s;
+      text-align: center;
+    }
+    .connect-link:hover {
+      border-color: var(--gold-dim);
+      color: var(--gold);
+      background: rgba(184,154,90,.05);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      border-top: 1px solid var(--ghost);
+    }
+    .footer-logo {
+      font-family: var(--mono);
+      font-size: .7rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+    }
+    .footer-note {
+      font-family: var(--mono);
+      font-size: .65rem;
+      color: var(--ghost);
+      letter-spacing: .08em;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.2rem; }
+      .nav-links { display: none; }
+      section { padding: var(--gap) 1.2rem; }
+      h1 { font-size: clamp(2.8rem, 12vw, 5rem); }
+      .albums-grid { grid-template-columns: 1fr; }
+      .about-grid { grid-template-columns: 1fr; }
+      .members-grid { grid-template-columns: 1fr 1fr; }
+      footer { flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <span class="nav-logo">Pentesilea Road</span>
+    <ul class="nav-links">
+      <li><a href="#music">Music</a></li>
+      <li><a href="sonnets.html">Sonnets</a></li>
+      <li><a href="reviews.html">Reviews</a></li>
+      <li><a href="nudge.html">The Nudge Unit</a></li>
+      <li><a href="#connect">Connect</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Rome, Italy · Post-Progressive Metal</p>
+      <h1>Pentesilea<br /><em>Road</em></h1>
+      <p class="hero-tagline">A post-progressive journey along the roads of the Invisible Cities. A tale of dissidence; an irreverent act of protest against the modern world.</p>
+      <div class="hero-ctas">
+        <a href="https://tinyurl.com/23d5h2vu" class="btn btn-primary" target="_blank" rel="noopener">Buy Sonnets from the Drowsiness</a>
+        <a href="#music" class="btn btn-ghost">Listen</a>
+      </div>
+    </div>
+    <span class="hero-scroll">Scroll</span>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- MUSIC -->
+  <section id="music">
+    <div class="section-inner">
+      <p class="section-label">Discography</p>
+      <h2>The <em>Albums</em></h2>
+
+      <div class="albums-grid">
+
+        <!-- Album 2 -->
+        <div class="album-card">
+          <div class="album-cover">
+            <img
+              src="https://images.zoogletools.com/s:bzglfiles/u/860044/b3a50602b70fbba08e88006e8df9d8318555b985/original/copertina-firmares.jpg/!!/b%3AW1sicmVzaXplIixbNjAwLG51bGwseyJ3aXRob3V0RW5sYXJnZW1lbnQiOnRydWUsImZpdCI6Im91dHNpZGUifV1dXQ%3D%3D/meta%3AeyJzcmNCdWNrZXQiOiJiemdsZmlsZXMifQ%3D%3D.jpg"
+              alt="Sonnets from the Drowsiness album cover"
+              loading="lazy"
+            />
+          </div>
+          <div>
+            <p class="album-tag">2025 · Double Album · Dutch Music Works</p>
+            <p class="album-title">Sonnets from the Drowsiness</p>
+            <p class="album-meta">18 tracks · 1h 40m · feat. Michele Guaitoli (Visions of Atlantis, Temperance)</p>
+            <p>An exploration of lucid dreams, the dreamtime, and the relationship between future and past. Bonus track featuring Zak Stevens (Savatage) in the double Digipak edition.</p>
+            <br />
+            <a href="https://tinyurl.com/23d5h2vu" class="btn btn-primary" target="_blank" rel="noopener">Buy the CD</a>
+          </div>
+          <!-- Bandcamp embed – Sonnets from the Drowsiness -->
+          <iframe class="bc-embed" style="height:120px;"
+            src="https://bandcamp.com/EmbeddedPlayer/album=3432744197/size=large/bgcol=0f0e13/linkcol=b89a5a/tracklist=false/artwork=none/transparent=true/"
+            seamless>
+            <a href="https://pentesilearoad.bandcamp.com/album/sonnets-from-the-drowsiness">Sonnets from the Drowsiness by Pentesilea Road</a>
+          </iframe>
+        </div>
+
+        <!-- Album 1 -->
+        <div class="album-card">
+          <div class="album-cover">
+            <img
+              src="https://images.zoogletools.com/s:bzglfiles/u/860044/60381847bd4215fa5ab5c5ee4e37165676576313/original/pentesilea-road-cover-design-1font.jpg/!!/b%3AW1sicmVzaXplIiwxMDAwXSxbIm1heCJdLFsid2UiXV0%3D/meta%3AeyJzcmNCdWNrZXQiOiJiemdsZmlsZXMifQ%3D%3D.jpg"
+              alt="Pentesilea Road debut album cover"
+              loading="lazy"
+            />
+          </div>
+          <div>
+            <p class="album-tag">2021 · Debut Album</p>
+            <p class="album-title">Pentesilea Road</p>
+            <p class="album-meta">feat. Ray Alder · Mark Zonder · Michele Guaitoli · Lorenzo Nocerino</p>
+            <p>Loosely inspired by Italo Calvino's <em>Invisible Cities</em>. Ranked among the best 2021 Prog Albums by DPRP, Rock Progresivo, and Unique High Fidelity (#30 of 50).</p>
+            <br />
+            <a href="https://tinyurl.com/sk8wsvej" class="btn btn-ghost" target="_blank" rel="noopener">Buy the CD</a>
+          </div>
+          <!-- Bandcamp embed – debut -->
+          <iframe class="bc-embed" style="height:120px;"
+            src="https://bandcamp.com/EmbeddedPlayer/album=2690175600/size=large/bgcol=0f0e13/linkcol=b89a5a/tracklist=false/artwork=none/transparent=true/"
+            seamless>
+            <a href="https://pentesilearoad.bandcamp.com/album/pentesilea-road-2">Pentesilea Road by Pentesilea Road</a>
+          </iframe>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- VIDEOS -->
+  <section id="videos">
+    <div class="section-inner">
+      <p class="section-label">Visual</p>
+      <h2><em>Videos</em></h2>
+      <div class="videos-grid">
+        <div class="video-wrap">
+          <iframe src="https://www.youtube.com/embed/WJPYVXyst-4" title="Echo of Silence" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="video-wrap">
+          <iframe src="https://www.youtube.com/embed/Q58lrtntFLg" title="The Geometry of Nothing" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="video-wrap">
+          <iframe src="https://www.youtube.com/embed/pPWHBMdlcDg" title="Worlds Apart" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="video-wrap">
+          <iframe src="https://www.youtube.com/embed/VOG1pY7KmU4" title="Pentesilea Road video" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="video-wrap">
+          <iframe src="https://www.youtube.com/embed/o7Qin9us2KM" title="Pentesilea Road video 2" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="video-wrap">
+          <iframe src="https://www.youtube.com/embed/seHGbrCImj4" title="Pentesilea Road video 3" allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-inner">
+      <p class="section-label">The Band</p>
+      <h2>About <em>Us</em></h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>Pentesilea Road was born as a heavy prog band. The name references Pentesilea — the diluted city described in Italo Calvino's <em>Invisible Cities</em> — a metaphor for the sense of displacement in the post-modern era.</p>
+          <p>The debut single "Shades of the Night" was released on January 29th, 2021. The eponymous debut album followed on February 26th, 2021, featuring <strong>Ray Alder, Mark Zonder, Michele Guaitoli</strong> and <strong>Lorenzo Vincenzo Nocerino</strong> as special guests.</p>
+          <p>In 2023 the line-up consolidated around <strong>Michele Guaitoli</strong> (Visions of Atlantis, Temperance) on vocals and <strong>Giovanni Montesano</strong> (Cirque du Soleil) on bass. Three years of composing and recording yielded the double album <em>Sonnets from the Drowsiness</em>, released May 23rd, 2025.</p>
+          <p style="margin-top:1.5rem;">
+            <strong style="color:var(--pale);">Past members &amp; guests:</strong><br />
+            <span style="font-family:var(--mono);font-size:.75rem;color:var(--silver);">Lorenzo Nocerino · Ray Alder · Mark Zonder · Zak Stevens</span>
+          </p>
+        </div>
+        <div class="members-grid">
+          <div class="member">
+            <div class="member-photo">
+              <img src="https://images.zoogletools.com/s:bzglfiles/u/860044/aa412afa196dfb5394b52677633bf2da2cb2d392/original/michele-b-w-retouch.jpg/!!/b%3AW1siZXh0cmFjdCIseyJsZWZ0Ijo5LCJ0b3AiOjM5MSwid2lkdGgiOjMyMzQsImhlaWdodCI6MzIzNH1dLFsicmVzaXplIiwzMzBdLFsibWF4Il0sWyJ3ZSJdXQ%3D%3D/meta%3AeyJzcmNCdWNrZXQiOiJiemdsZmlsZXMifQ%3D%3D.jpg" alt="Michele Guaitoli" loading="lazy" />
+            </div>
+            <p class="member-name">Michele Guaitoli</p>
+            <p class="member-role">Vocals</p>
+          </div>
+          <div class="member">
+            <div class="member-photo">
+              <img src="https://images.zoogletools.com/s:bzglfiles/u/860044/a7c5e1de6d5e96f5c92dbf3f3cdd8d3beb3390ff/original/vito2.jpg/!!/b%3AW1siZXh0cmFjdCIseyJsZWZ0IjozMjksInRvcCI6MCwid2lkdGgiOjEwNjYsImhlaWdodCI6MTA2Nn1dLFsicmVzaXplIiwzMzBdLFsibWF4Il0sWyJ3ZSJdXQ%3D%3D/meta%3AeyJzcmNCdWNrZXQiOiJiemdsZmlsZXMifQ%3D%3D.jpg" alt="Vito F. Mainolfi" loading="lazy" />
+            </div>
+            <p class="member-name">Vito F. Mainolfi</p>
+            <p class="member-role">Guitars</p>
+          </div>
+          <div class="member">
+            <div class="member-photo">
+              <img src="https://images.zoogletools.com/s:bzglfiles/u/860044/e4ba51d1e04f813c9b0f95758c4548e69f94d3cc/original/giovanni1.jpg/!!/b%3AW1siZXh0cmFjdCIseyJsZWZ0IjoyNjcsInRvcCI6MCwid2lkdGgiOjEwNjYsImhlaWdodCI6MTA2Nn1dLFsicmVzaXplIiwzMzBdLFsibWF4Il0sWyJ3ZSJdXQ%3D%3D/meta%3AeyJzcmNCdWNrZXQiOiJiemdsZmlsZXMifQ%3D%3D.jpg" alt="Giovanni Montesano" loading="lazy" />
+            </div>
+            <p class="member-name">Giovanni Montesano</p>
+            <p class="member-role">Bass</p>
+          </div>
+          <div class="member">
+            <div class="member-photo">
+              <img src="https://images.zoogletools.com/s:bzglfiles/u/860044/b37bc377e107bbc69d8f41c84bc4a30ca47b6f8b/original/img-0123.jpg/!!/b%3AW1siZXh0cmFjdCIseyJsZWZ0IjoyNTQsInRvcCI6MTUxOCwid2lkdGgiOjQ2MTYsImhlaWdodCI6NDYxNn1dLFsicmVzaXplIiwzMzBdLFsibWF4Il0sWyJ3ZSJdXQ%3D%3D/meta%3AeyJzcmNCdWNrZXQiOiJiemdsZmlsZXMifQ%3D%3D.jpg" alt="Ezio Di Ieso" loading="lazy" />
+            </div>
+            <p class="member-name">Ezio Di Ieso</p>
+            <p class="member-role">Keys</p>
+          </div>
+          <div class="member">
+            <div class="member-photo">
+              <img src="https://images.zoogletools.com/s:bzglfiles/u/860044/52d69c6560690f161fb3267b08a2d24e4a0bcc01/original/alfo1.jpg/!!/b%3AW1siZXh0cmFjdCIseyJsZWZ0IjoxMDMyLCJ0b3AiOjQ1NSwid2lkdGgiOjI0ODQsImhlaWdodCI6MjQ4NH1dLFsicmVzaXplIiwzMzBdLFsibWF4Il0sWyJ3ZSJdXQ%3D%3D/meta%3AeyJzcmNCdWNrZXQiOiJiemdsZmlsZXMifQ%3D%3D.jpg" alt="Alfonso Mocerino" loading="lazy" />
+            </div>
+            <p class="member-name">Alfonso Mocerino</p>
+            <p class="member-role">Drums</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- PRESS -->
+  <section id="press">
+    <div class="section-inner">
+      <p class="section-label">Reviews</p>
+      <h2>What They're <em>Saying</em></h2>
+      <div class="reviews-grid">
+
+        <div class="review-card">
+          <p class="review-quote">"Walking on the hard-rocking edge of the progressive world, a wandering traveller may stumble upon a rare gem called Pentesilea Road. And he'd be lucky!"</p>
+          <p class="review-source"><a href="https://www.musicarockprogresivo.wordpress.com/2021/11/30/pentesilea-road-pentesilea-road-album-review/" target="_blank" rel="noopener">Rock Progresivo</a></p>
+        </div>
+
+        <div class="review-card">
+          <p class="review-quote">"When Post-Progressive Rock meets the finer elements of Progressive Metal and is polished with a seasoning of Rush's Geddy Lee alongside influences reminiscent of former Queensrÿche front man Geoff Tate — then you have a product of musical mastery."</p>
+          <p class="review-source"><a href="https://www.seaoftranquility.org/reviews.php?op=showcontent&id=22905" target="_blank" rel="noopener">Sea of Tranquility</a></p>
+        </div>
+
+        <div class="review-card">
+          <p class="review-quote">"This record may be the closest thing to a new Fates Warning album in its own unique way. Multilayered and carefully constructed — a crossroad of inspirations from jazz and blues to progressive metal to post-rock soundscapes."</p>
+          <p class="review-source"><a href="https://kickassforever.com" target="_blank" rel="noopener">Kick Ass Forever</a></p>
+        </div>
+
+        <div class="review-card">
+          <p class="review-quote">"A debut album that makes you sit up and take notice and whets your appetite for much more. All that's missing now is a tour with Fates Warning."</p>
+          <p class="review-source"><a href="http://www.adnoctum.de" target="_blank" rel="noopener">Ad Noctum</a></p>
+        </div>
+
+        <div class="review-card">
+          <p class="review-quote">"Topklasse, pure topklasse."</p>
+          <p class="review-source"><a href="https://www.musika.be/2025/12/08/pentesilea-road-sonnets-from-the-drowsiness/" target="_blank" rel="noopener">Musika (Sonnets from the Drowsiness)</a></p>
+        </div>
+
+        <div class="review-card">
+          <p class="review-quote">"The band's second album is the kind of record that spares no ambition."</p>
+          <p class="review-source"><a href="https://www.progarchives.com/Review.asp?id=3221754" target="_blank" rel="noopener">Progarchives (Sonnets from the Drowsiness)</a></p>
+        </div>
+
+        <div class="review-card">
+          <p class="review-quote">"A marvellous debut album — great melodic work, stunning guitar, excellent songwriting. Another prog rock/metal gem from Italy: buy or die!"</p>
+          <p class="review-source"><a href="https://www.backgroundmagazine.nl/CDreviews/PentesileaRoadPentesileaRoad.html" target="_blank" rel="noopener">Background Magazine</a></p>
+        </div>
+
+        <div class="review-card">
+          <p class="review-quote">"#30 — 2021 Top 50 Prog Albums"</p>
+          <p class="review-source"><a href="https://uniquehighfidelity.wixsite.com/denimandleather/post/2021-top-50-prog-albums" target="_blank" rel="noopener">Unique High Fidelity</a></p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- CONNECT -->
+  <section id="connect">
+    <div class="section-inner">
+      <p class="section-label">Links</p>
+      <h2><em>Connect</em></h2>
+      <div class="connect-grid">
+        <a class="connect-link" href="https://pentesilearoad.bandcamp.com/" target="_blank" rel="noopener">Bandcamp</a>
+        <a class="connect-link" href="https://open.spotify.com/artist/2dfuaABjoufPDGwPHAp090" target="_blank" rel="noopener">Spotify</a>
+        <a class="connect-link" href="https://www.youtube.com/channel/UCKeoz8TsveQC6MOzQPysoKA" target="_blank" rel="noopener">YouTube</a>
+        <a class="connect-link" href="https://instagram.com/pentesilearoad/" target="_blank" rel="noopener">Instagram</a>
+        <a class="connect-link" href="https://www.facebook.com/pentesilearoad" target="_blank" rel="noopener">Facebook</a>
+        <a class="connect-link" href="https://store.dutchmusicworks.com/product/pentesilea-road-sonnets-from-the-drowsiness-2cd" target="_blank" rel="noopener">Dutch Music Works</a>
+        <a class="connect-link" href="mailto:info@pentesilearoad.com">Booking / Press</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-logo">Pentesilea Road</span>
+    <span class="footer-note">© Pentesilea Road · All Rights Reserved</span>
+  </footer>
+
+</body>
+</html>
